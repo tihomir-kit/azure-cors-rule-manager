@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ACRM.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace ACRM.Controllers
     {
         public ActionResult Index()
         {
+            var corsRules = AzureProvider.GetInstance().GetCorsRules(_accountName, _accountKey);
+
             return View();
         }
     }

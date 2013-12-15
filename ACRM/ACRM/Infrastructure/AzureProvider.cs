@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,13 @@ namespace ACRM.Infrastructure
             CloudStorageAccount.TryParse(storageConnectionString, out cloudStorageAccount);
 
             return cloudStorageAccount;
+        }
+
+        public IList<CorsRule> GetCorsRules(string accountName, string accountKey)
+        {
+            var blobClient = GetAzureClient(accountName, accountKey);
+            var serviceProperties = blobClient.GetServiceProperties();
+            return serviceProperties.Cors.CorsRules;
         }
     }
 }

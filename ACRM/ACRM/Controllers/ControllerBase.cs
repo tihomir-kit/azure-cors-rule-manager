@@ -11,10 +11,15 @@ namespace ACRM.Controllers
         protected string _accountName = null;
         protected string _accountKey = null;
 
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            base.OnActionExecuted(filterContext);
-            ReadCredentialsCookie();
+            var currentControllerName = Request.RequestContext.RouteData.Values["controller"].ToString();
+            var redirectToAction = ReadCredentialsCookie();
+
+            if (redirectToAction != null && currentControllerName != "Home")
+                filterContext.Result = redirectToAction;
+
+            base.OnActionExecuting(filterContext);
         }
 
         protected void SetCredentialsCookie(string accountName, string accountKey)
