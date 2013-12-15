@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <h1>@ViewBag.Title</h1>
+    <h1>@Html.ActionLink((string)ViewBag.Title, "Index", "Home")</h1>
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")

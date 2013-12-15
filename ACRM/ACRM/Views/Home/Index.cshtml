@@ -16,15 +16,19 @@
     }
     
     <div>
-        @Html.LabelFor(m => m.AccountName)
-        @Html.EditorFor(m => m.AccountName)
-        @Html.ValidationMessageFor(m => m.AccountName)
+        <strong>@Html.LabelFor(m => m.AccountName)</strong>
+        <div>
+            @Html.EditorFor(m => m.AccountName)
+            @Html.ValidationMessageFor(m => m.AccountName)
+        </div>
     </div>
 
     <div>
-        @Html.LabelFor(m => m.AccountKey)
-        @Html.EditorFor(m => m.AccountKey)
-        @Html.ValidationMessageFor(m => m.AccountKey)
+        <strong>@Html.LabelFor(m => m.AccountKey)</strong>
+        <div>
+            @Html.EditorFor(m => m.AccountKey)
+            @Html.ValidationMessageFor(m => m.AccountKey)
+        </div>
     </div>
     
     <div>

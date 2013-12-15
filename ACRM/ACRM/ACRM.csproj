@@ -158,6 +158,8 @@
     </Compile>
     <Compile Include="Infrastructure\AzureProvider.cs" />
     <Compile Include="Models\AzureCredentialsModel.cs" />
+    <Compile Include="Models\CorsRuleModel.cs" />
+    <Compile Include="Models\CorsRulesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +249,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Rules\Index.cshtml" />
+    <Content Include="Views\Rules\Create.cshtml" />
+    <Content Include="Views\Rules\Edit.cshtml" />
+    <Content Include="Views\Rules\_RulesForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

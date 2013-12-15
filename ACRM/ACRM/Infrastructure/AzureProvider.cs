@@ -19,6 +19,16 @@ namespace ACRM.Infrastructure
             return new AzureProvider();
         }
 
+        public CloudStorageAccount GetCloudStorageAccount(string accountName, string accountKey)
+        {
+            string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", accountName, accountKey);
+
+            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.DevelopmentStorageAccount;
+            CloudStorageAccount.TryParse(storageConnectionString, out cloudStorageAccount);
+
+            return cloudStorageAccount;
+        }
+
         public CloudBlobClient GetAzureClient(string accountName, string accountKey)
         {
             var cloudStorageAccount = GetCloudStorageAccount(accountName, accountKey);
@@ -29,16 +39,6 @@ namespace ACRM.Infrastructure
         {
             var cloudStorageAccount = GetCloudStorageAccount(accountName, accountKey);
             return cloudStorageAccount != null;
-        }
-
-        public CloudStorageAccount GetCloudStorageAccount(string accountName, string accountKey)
-        {
-            string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", accountName, accountKey);
-
-            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.DevelopmentStorageAccount;
-            CloudStorageAccount.TryParse(storageConnectionString, out cloudStorageAccount);
-
-            return cloudStorageAccount;
         }
 
         public IList<CorsRule> GetCorsRules(string accountName, string accountKey)
