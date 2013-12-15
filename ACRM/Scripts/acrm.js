@@ -19,7 +19,7 @@
         var buttonClassSelector = divClassSelector + " button";
 
         $(divClassSelector).each(function (index, element) {
-            var newId = "#" + dashPrefix + "-holder-" + index;
+            var newId = dashPrefix + "-inner-holder-" + index;
             element.setAttribute("id", newId);
         });
 
@@ -56,7 +56,8 @@
         });
 
         var button = $("<button/>", {
-            class: "add-button",
+            text: "-",
+            class: "remove-button",
             type: "button",
             "data-camel-prefix": camelPrefix,
             "data-dash-prefix": dashPrefix
@@ -71,7 +72,7 @@
 
 
 $(document).ready(function () {
-    $(".remove-button").on('click', ACRM.handleItemRemoval);
-    $(".add-button").on('click', ACRM.handleItemAppend);
+    $(".remove-button").live('click', ACRM.handleItemRemoval);
+    $(".add-button").live('click', ACRM.handleItemAppend);
 });
 
