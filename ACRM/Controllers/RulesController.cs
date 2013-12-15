@@ -36,7 +36,7 @@ namespace ACRM.Controllers
         [HttpPost]
         public ActionResult Create(CorsRuleModel model)
         {
-            return View();
+            return View(model);
         }
 
         public ActionResult Edit(int id)

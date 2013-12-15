@@ -1,34 +1,43 @@
 ﻿@model ACRM.Models.CorsRuleModel
 
 <div id="allowed-origins-holder">
-    <strong>@Html.Label("Allowed Origins")</strong>
+    <strong>
+        @Html.Label("Allowed Origins") 
+        <button class="add-button" type="button" data-camel-prefix="AllowedOrigins" data-dash-prefix="allowed-origins">+</button>
+    </strong>
     @for (var i = 0; i < Model.AllowedOrigins.Count; i++)
     {
-        <div id="allowed-origins-inner-holder-@i">
+        <div id="allowed-origins-inner-holder-@i" class="allowed-origins-inner-holder">
             @Html.TextBoxFor(m => m.AllowedOrigins[i], new { @class = "allowed-origins-box" }) 
-            <a href="javascript: void(0)" class="allowed-origins-remove-button" data-index="@i" data-camel-prefix="AllowedOrigins" data-dash-prefix="allowed-origins">x</a>
+            <button class="allowed-origins-remove-button" type="button" data-index="@i" data-camel-prefix="AllowedOrigins" data-dash-prefix="allowed-origins">-</button>
         </div>
     }
 </div>  
 
 <div id="allowed-headers-holder">
-    <strong>@Html.Label("Allowed Headers")</strong>
+    <strong>
+        @Html.Label("Allowed Headers") 
+        <button class="add-button" type="button" data-camel-prefix="AllowedHeaders" data-dash-prefix="allowed-headers">+</button>
+    </strong>
     @for (var i = 0; i < Model.AllowedHeaders.Count; i++)
     {
-        <div id="allowed-headers-inner-holder-@i">
+        <div id="allowed-headers-inner-holder-@i" class="allowed-headers-inner-holder">
             @Html.TextBoxFor(m => m.AllowedHeaders[i], new { @class = "allowed-headers-box" })
-            <a href="javascript: void(0)" class="remove-button" data-index="@i" data-camel-prefix="AllowedHeaders" data-dash-prefix="allowed-headers">x</a>
+            <button class="remove-button" type="button" data-index="@i" data-camel-prefix="AllowedHeaders" data-dash-prefix="allowed-headers">-</button>
         </div>    
     }
 </div>  
 
 <div id="exposed-headers-holder">
-    <strong>@Html.Label("Exposed Headers")</strong>
+    <strong>
+        @Html.Label("Exposed Headers") 
+        <button class="add-button" type="button" data-camel-prefix="ExposedHeaders" data-dash-prefix="exposed-headers">+</button>
+    </strong>
     @for (var i = 0; i < Model.ExposedHeaders.Count; i++)
     {
-        <div id="exposed-headers-inner-holder-@i">
+        <div id="exposed-headers-inner-holder-@i" class="exposed-headers-inner-holder">
             @Html.TextBoxFor(m => m.ExposedHeaders[i], new { @class = "exposed-headers-box" })
-            <a href="javascript: void(0)" class="remove-button" data-index="@i" data-camel-prefix="ExposedHeaders" data-dash-prefix="exposed-headers">x</a>
+            <button class="remove-button" type="button" data-index="@i" data-camel-prefix="ExposedHeaders" data-dash-prefix="exposed-headers">-</button>
         </div>
     }
 </div>  
