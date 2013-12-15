@@ -1,0 +1,30 @@
+﻿@model ACRM.Models.CorsRuleModel
+
+<div id="allowed-origins-holder">
+    <strong>@Html.Label("Allowed Origins")</strong>
+    @for (var i = 0; i < Model.AllowedOrigins.Count; i++)
+    {
+        <div>@Html.EditorFor(m => m.AllowedOrigins[i])</div>    
+    }
+</div>  
+
+<div id="allowed-headers-holder">
+    <strong>@Html.Label("Allowed Headers")</strong>
+    @for (var i = 0; i < Model.AllowedHeaders.Count; i++)
+    {
+        <div>@Html.EditorFor(m => m.AllowedHeaders[i])</div>    
+    }
+</div>  
+
+<div id="exposed-headers-holder">
+    <strong>@Html.Label("Exposed Headers")</strong>
+    @for (var i = 0; i < Model.ExposedHeaders.Count; i++)
+    {
+        <div>@Html.EditorFor(m => m.ExposedHeaders[i])</div>    
+    }
+</div>  
+
+<div>
+    <strong>@Html.LabelFor(m => m.MaxAgeInSeconds)</strong>
+    <div>@Html.EditorFor(m => m.MaxAgeInSeconds)</div>
+</div>    

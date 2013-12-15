@@ -1,0 +1,16 @@
+﻿@model ACRM.Models.CorsRuleModel
+
+<h2>Create CORS Rule</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("_RulesForm", Model)
+
+        <div>
+            <input type="submit" value="Save rule">
+        </div>
+    }
+</div>
+
+@Html.ActionLink("<-- Back to CORS rules", "Index")
