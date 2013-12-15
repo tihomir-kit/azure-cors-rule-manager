@@ -3,7 +3,7 @@
 <h2>Edit CORS Rule</h2>
 
 <div>
-    @using (Html.BeginForm(new { id = Model.Id }))
+    @using (Html.BeginForm())
     {
         @Html.Partial("_RulesForm", Model)
 
@@ -14,3 +14,4 @@
 </div>
 
 @Html.ActionLink("<-- Back to CORS rules", "Index")
+    

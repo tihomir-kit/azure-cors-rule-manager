@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,8 @@ namespace ACRM.Models
         public IList<string> AllowedMethods { get; set; }
         public IList<string> AllowedHeaders { get; set; }
         public IList<string> ExposedHeaders { get; set; }
+
+        [Display(Name = "Max Age in Seconds")]
         public int MaxAgeInSeconds { get; set; }
     }
 }

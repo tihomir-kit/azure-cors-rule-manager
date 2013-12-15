@@ -43,13 +43,14 @@ namespace ACRM.Controllers
         {
             var corsRule = AzureProvider.GetInstance().GetCorsRules(_accountName, _accountKey)[id - 1];
             var model = MapCorsRule(corsRule);
+            model.Id = id;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, CorsRuleModel model)
+        public ActionResult Edit(CorsRuleModel model)
         {
-            return View();
+            return View(model);
         }
         #endregion
 
