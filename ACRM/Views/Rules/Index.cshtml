@@ -1,15 +1,18 @@
 ﻿@model ACRM.Models.CorsRulesModel
 
-<h2>Existing CORS Rules (@Html.ActionLink("Add new rule", "Create"))</h2>
+<h2>Existing CORS Rules</h2>
+
+@Html.ActionLink("Add new rule", "Create") (Max. 5 per storage service (Blob, Table and Queue))
 
 @foreach (var corsRule in Model.CorsRules)
 {
     <div>
-        <h3>#@corsRule.Id (@Html.ActionLink("Edit", "Edit", new { id = corsRule.Id }))</h3>
+        <h3>#@corsRule.Id (@Html.ActionLink("Edit", "Edit", new { id = corsRule.Id }) / Remove)</h3>
         <p><strong>Allowed origins:</strong> @(String.Join(", ", corsRule.AllowedOrigins))</p>
+        <p><strong>Allowed methods:</strong> @(String.Join(", ", corsRule.AllowedMethods))</p>
         <p><strong>Allowed headers:</strong> @(String.Join(", ", corsRule.AllowedHeaders))</p>
         <p><strong>Exposed headers:</strong> @(String.Join(", ", corsRule.ExposedHeaders))</p>
-        <p><strong>Max age (in seconds):</strong> @(String.Join(", ", corsRule.MaxAgeInSeconds))</p>
+        <p><strong>Max age (seconds):</strong> @(String.Join(", ", corsRule.MaxAgeInSeconds))</p>
     </div>
 }
 

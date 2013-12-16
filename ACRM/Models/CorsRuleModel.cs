@@ -16,5 +16,7 @@ namespace ACRM.Models
 
         [Display(Name = "Max Age in Seconds")]
         public int MaxAgeInSeconds { get; set; }
+
+        public string ExceptionMessage { get; set; }
     }
 }

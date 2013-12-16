@@ -1,5 +1,10 @@
 ﻿@model ACRM.Models.CorsRuleModel
 
+<div>
+    @Html.ValidationSummary()
+    @Model.ExceptionMessage    
+</div>
+
 <div id="allowed-origins-holder">
     <strong>
         @Html.Label("Allowed Origins")
@@ -10,6 +15,20 @@
         <div id="allowed-origins-inner-holder-@i" class="allowed-origins-inner-holder">
             @Html.TextBoxFor(m => m.AllowedOrigins[i], new { @class = "allowed-origins-box" }) 
             <button class="remove-button" type="button" data-index="@i" data-camel-prefix="AllowedOrigins" data-dash-prefix="allowed-origins">-</button>
+        </div>
+    }
+</div>  
+
+<div id="allowed-methods-holder">
+    <strong>
+        @Html.Label("Allowed Methods")
+        <button class="add-button" type="button" data-camel-prefix="AllowedMethods" data-dash-prefix="allowed-methods">+</button>
+    </strong>
+    @for (var i = 0; i < Model.AllowedMethods.Count; i++)
+    {
+        <div id="allowed-methods-inner-holder-@i" class="allowed-methods-inner-holder">
+            @Html.TextBoxFor(m => m.AllowedMethods[i], new { @class = "allowed-methods-box" }) 
+            <button class="remove-button" type="button" data-index="@i" data-camel-prefix="AllowedMethods" data-dash-prefix="allowed-methods">-</button>
         </div>
     }
 </div>  

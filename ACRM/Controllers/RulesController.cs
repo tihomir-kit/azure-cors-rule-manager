@@ -21,7 +21,7 @@ namespace ACRM.Controllers
         #region Actions
         public ActionResult Index()
         {
-            var corsRules = AzureProvider.GetInstance().GetCorsRules(_accountName, _accountKey);
+            var corsRules = AzureProvider.GetInstance(_accountName, _accountKey).GetCorsRules();
             var model = MapCorsRules(corsRules);
 
             return View(model);       
@@ -36,21 +36,52 @@ namespace ACRM.Controllers
         [HttpPost]
         public ActionResult Create(CorsRuleModel model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var corsRule = MapCorsRuleModel(model);
+
+            try
+            {
+                AzureProvider.GetInstance(_accountName, _accountKey).CreateCorsRule(corsRule);
+            }
+            catch (Exception e)
+            {
+                model.ExceptionMessage = e.Message;
+                return View(model);
+            }
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
         {
-            var corsRule = AzureProvider.GetInstance().GetCorsRules(_accountName, _accountKey)[id - 1];
+            var corsRule = AzureProvider.GetInstance(_accountName, _accountKey).GetCorsRules()[id - 1];
+            corsRule.AllowedMethods.ToString();
             var model = MapCorsRule(corsRule);
             model.Id = id;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(CorsRuleModel model)
+        public ActionResult Edit(int id, CorsRuleModel model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var corsRule = MapCorsRuleModel(model);
+
+            try
+            {
+                AzureProvider.GetInstance(_accountName, _accountKey).UpdateCorsRule(id - 1, corsRule);
+            }
+            catch (Exception e)
+            {
+                model.ExceptionMessage = e.Message;
+                return View(model);
+            }
+
+            return RedirectToAction("Index");
         }
         #endregion
 
@@ -60,6 +91,7 @@ namespace ACRM.Controllers
             return new CorsRuleModel()
             {
                 AllowedOrigins = new List<string>() { String.Empty },
+                AllowedMethods = new List<string>() { String.Empty },
                 AllowedHeaders = new List<string>() { String.Empty },
                 ExposedHeaders = new List<string>() { String.Empty },
                 MaxAgeInSeconds = 0
@@ -83,15 +115,45 @@ namespace ACRM.Controllers
 
         private CorsRuleModel MapCorsRule(CorsRule corsRule)
         {
-            // TODO: implement allowed headers mapping
-
             return new CorsRuleModel()
             {
                 AllowedOrigins = corsRule.AllowedOrigins,
+                AllowedMethods = MapAllowedMethods(corsRule.AllowedMethods),
                 AllowedHeaders = corsRule.AllowedHeaders,
                 ExposedHeaders = corsRule.ExposedHeaders,
                 MaxAgeInSeconds = corsRule.MaxAgeInSeconds
             };
+        }
+
+        private IList<string> MapAllowedMethods(CorsHttpMethods allowedMethods)
+        {
+            return allowedMethods.ToString().Replace(" ", String.Empty).Split(',').ToList();
+        }
+
+        private CorsRule MapCorsRuleModel(CorsRuleModel corsRuleModel)
+        {
+            return new CorsRule()
+            {
+                AllowedOrigins = corsRuleModel.AllowedOrigins,
+                AllowedMethods = MapAllowedMethods(corsRuleModel.AllowedMethods),
+                AllowedHeaders = corsRuleModel.AllowedHeaders,
+                ExposedHeaders = corsRuleModel.ExposedHeaders,
+                MaxAgeInSeconds = corsRuleModel.MaxAgeInSeconds
+            };
+        }
+
+        private CorsHttpMethods MapAllowedMethods(IList<string> allowedMethods)
+        {
+            var corsHttpMethods = new CorsHttpMethods();
+
+            foreach (var allowedMethod in allowedMethods)
+            {
+                var tmpMethod = new CorsHttpMethods();
+                if (Enum.TryParse<CorsHttpMethods>(allowedMethod, true, out tmpMethod))
+                    corsHttpMethods |= tmpMethod;
+            }
+
+            return corsHttpMethods;
         }
         #endregion
     }

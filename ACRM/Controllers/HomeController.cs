@@ -22,7 +22,7 @@ namespace ACRM.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (!AzureProvider.GetInstance().AzureClientExists(model.AccountName, model.AccountKey))
+            if (!AzureProvider.GetInstance(model.AccountName, model.AccountKey).AzureClientExists())
             {
                 model.CustomErrorMessage = "Invalid credentials.";
                 return View(model);

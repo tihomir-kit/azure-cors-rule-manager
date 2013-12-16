@@ -7,7 +7,7 @@ ACRM is a simple web application to help you manage Azure Cross Origin Resource 
 
 ## Requirements
 
-Since ACRM is made as an ASP.NET MVC web app, you will need VisualStudio to build and run it. I assume this will most probably be used by developers anyhow so this shouldn't be a problem. For those of you that develop stuff for Azure from platforms other than .net, you will need to manage CORS rules through the Azure REST API.
+Since ACRM is made as an ASP.NET MVC web app which uses Azure SDK v3.x, you will need VisualStudio to build and run it. I assume this will most probably be used by developers anyhow so this shouldn't be a problem. For those of you who develop stuff for Azure from platforms other than .net, you will need to manage CORS rules through the Azure REST API.
 
 ## Credits
 
