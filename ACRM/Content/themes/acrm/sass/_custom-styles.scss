@@ -1,0 +1,30 @@
+header {
+	border-bottom: 1px solid lighten(#ccc, 10%);
+	padding: 1.5em; 
+	margin-bottom: 2em;
+	font-size: emCalc(14);
+}
+
+.field-validation-error {
+	font-size: 0.85em;
+	color: $alert-color;
+	margin-bottom: 1.5em;
+	margin-top: -0.25em;
+	display: block;
+}
+
+form {
+	background-color: lighten(#ccc, 15%);
+	padding: 2em 0;
+}
+
+.title {
+	@media #{$small} {
+		background-image: url(../images/logo.png);
+		background-repeat: no-repeat;
+		background-position: left 10px;
+		background-size: 35px;
+		padding-left: 1.25em;
+		margin-left: -1.25em;
+	}
+}

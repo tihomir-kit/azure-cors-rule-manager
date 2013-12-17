@@ -4,7 +4,25 @@
 
 @model ACRM.Models.AzureCredentialsModel
 
-<h2>Please enter your Azure credentials (or use the existing ones NYI)</h2>
+
+<header>
+    Logedin
+
+</header>
+
+<div class="row">
+    <div class="large-7 small-centered columns">
+        <h2 class="title">@Html.ActionLink((string)ViewBag.Title, "Index", "Home")</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-7 small-centered columns">
+        <h4>Please enter your Azure credentials</h4>
+    </div>
+</div>
+
+<br />
 
 @using (Html.BeginForm())
 {
@@ -15,24 +33,35 @@
         </div>
     }
     
-    <div>
-        <strong>@Html.LabelFor(m => m.AccountName)</strong>
-        <div>
-            @Html.EditorFor(m => m.AccountName)
-            @Html.ValidationMessageFor(m => m.AccountName)
+    <div class="row">
+        <div class="large-7 small-centered columns">
+            <strong>@Html.LabelFor(m => m.AccountName)</strong>
+
+                @Html.EditorFor(m => m.AccountName)
+                @Html.ValidationMessageFor(m => m.AccountName)
         </div>
     </div>
 
-    <div>
-        <strong>@Html.LabelFor(m => m.AccountKey)</strong>
-        <div>
-            @Html.EditorFor(m => m.AccountKey)
-            @Html.ValidationMessageFor(m => m.AccountKey)
+    <div class="row">
+        <div class="large-7 small-centered columns">
+            <strong>@Html.LabelFor(m => m.AccountKey)</strong>
+
+                @Html.EditorFor(m => m.AccountKey)
+                @Html.ValidationMessageFor(m => m.AccountKey)
+
         </div>
     </div>
     
-    <div>
-        <input type="submit" value="Set credentials">
+    <div class="row">
+        <div class="large-7 small-centered columns">
+            <input type="submit" value="Set credentials" class="button">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="large-7 small-centered columns">
+            <a href="#">or use the existing ones</a> (NYI)
+        </div>
     </div>
 }
 

@@ -163,6 +163,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\themes\acrm\images\logo.png" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.abide.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.alerts.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.clearing.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.cookie.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.dropdown.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.forms.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.interchange.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.joyride.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.magellan.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.orbit.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.placeholder.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.reveal.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.section.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.tooltips.js" />
+    <Content Include="Content\themes\acrm\javascripts\foundation\foundation.topbar.js" />
+    <Content Include="Content\themes\acrm\javascripts\vendor\custom.modernizr.js" />
+    <Content Include="Content\themes\acrm\javascripts\vendor\jquery.js" />
+    <Content Include="Content\themes\acrm\javascripts\vendor\zepto.js" />
+    <Content Include="Content\themes\acrm\stylesheets\app.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

@@ -1,18 +1,51 @@
 ﻿<!DOCTYPE html>
-<html>
+<!--[if IE 8]>  <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+
+    @*@Styles.Render("~/Content/css")*@
+    @Styles.Render("~/Content/themes/acrm/stylesheets/app.css")
+    
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
+
+
 <body>
-    <h1>@Html.ActionLink((string)ViewBag.Title, "Index", "Home")</h1>
+    
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/Scripts/acrm.js")
+
+
+    <!--
+    <script src="javascripts/foundation/foundation.js"></script>
+    <script src="javascripts/foundation/foundation.abide.js"></script>
+    <script src="javascripts/foundation/foundation.alerts.js"></script>
+    <script src="javascripts/foundation/foundation.clearing.js"></script>
+    <script src="javascripts/foundation/foundation.cookie.js"></script>
+    <script src="javascripts/foundation/foundation.dropdown.js"></script>
+    <script src="javascripts/foundation/foundation.forms.js"></script>
+    <script src="javascripts/foundation/foundation.interchange.js"></script>
+    <script src="javascripts/foundation/foundation.joyride.js"></script>
+    <script src="javascripts/foundation/foundation.magellan.js"></script>
+    <script src="javascripts/foundation/foundation.orbit.js"></script>
+    <script src="javascripts/foundation/foundation.placeholder.js"></script>
+    <script src="javascripts/foundation/foundation.reveal.js"></script>
+    <script src="javascripts/foundation/foundation.section.js"></script>
+    <script src="javascripts/foundation/foundation.tooltips.js"></script>
+    <script src="javascripts/foundation/foundation.topbar.js"></script>
+    -->
+
+    <script>
+        //$(document).foundation();
+    </script>
+
 </body>
 </html>
