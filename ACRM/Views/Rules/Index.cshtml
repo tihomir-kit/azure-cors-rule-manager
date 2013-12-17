@@ -2,12 +2,16 @@
 
 <h2>Existing CORS Rules</h2>
 
-@Html.ActionLink("Add new rule", "Create") (Max. 5 per storage service (Blob, Table and Queue))
+@Html.ActionLink("Add new rule", "Create") (Max. 5 per storage service)
 
 @foreach (var corsRule in Model.CorsRules)
 {
     <div>
-        <h3>#@corsRule.Id (@Html.ActionLink("Edit", "Edit", new { id = corsRule.Id }) / Remove)</h3>
+        <h3>
+            #@corsRule.Id 
+            (@Html.ActionLink("Edit", "Edit", new { id = corsRule.Id }) / 
+            @Html.ActionLink("Remove", "Delete", new { id = corsRule.Id }, new { onclick = "return confirm('Are you sure you wish to remove this item?')" }))
+        </h3>
         <p><strong>Allowed origins:</strong> @(String.Join(", ", corsRule.AllowedOrigins))</p>
         <p><strong>Allowed methods:</strong> @(String.Join(", ", corsRule.AllowedMethods))</p>
         <p><strong>Allowed headers:</strong> @(String.Join(", ", corsRule.AllowedHeaders))</p>

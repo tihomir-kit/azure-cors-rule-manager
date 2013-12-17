@@ -19,6 +19,8 @@ namespace ACRM.Controllers
             if (redirectToAction != null && currentControllerName != "Home")
                 filterContext.Result = redirectToAction;
 
+            ViewBag.AccountName = _accountName;
+            ViewBag.DisplayHeaderRulesLink = _accountName != null && currentControllerName == "Home";
             base.OnActionExecuting(filterContext);
         }
 

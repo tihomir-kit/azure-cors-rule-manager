@@ -57,7 +57,6 @@ namespace ACRM.Infrastructure
         {
             var azureClient = GetAzureClient();
             var serviceProperties = azureClient.GetServiceProperties();
-            serviceProperties.Cors.CorsRules.Clear();
             serviceProperties.Cors.CorsRules.Add(corsRule);
             azureClient.SetServiceProperties(serviceProperties);
         }
@@ -67,6 +66,15 @@ namespace ACRM.Infrastructure
             var azureClient = GetAzureClient();
             var serviceProperties = azureClient.GetServiceProperties();
             serviceProperties.Cors.CorsRules[id] = corsRule;
+            azureClient.SetServiceProperties(serviceProperties);
+        }
+
+        public void RemoveCorsRule(int id)
+        {
+            var azureClient = GetAzureClient();
+            var serviceProperties = azureClient.GetServiceProperties();
+            var corsRuleToRemove = serviceProperties.Cors.CorsRules[id];
+            serviceProperties.Cors.CorsRules.Remove(corsRuleToRemove);
             azureClient.SetServiceProperties(serviceProperties);
         }
     }

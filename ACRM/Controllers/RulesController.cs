@@ -11,17 +11,27 @@ namespace ACRM.Controllers
 {
     public class RulesController : ControllerBase
     {
+        #region Fields
+        private AzureProvider _azureProvider = null;
+        #endregion
+
         #region Constructor
         public RulesController()
         {
             ViewBag.Title = "Azure CORS rule manager"; 
+        }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+            _azureProvider = new AzureProvider(_accountName, _accountKey);
         }
         #endregion
 
         #region Actions
         public ActionResult Index()
         {
-            var corsRules = AzureProvider.GetInstance(_accountName, _accountKey).GetCorsRules();
+            var corsRules = _azureProvider.GetCorsRules();
             var model = MapCorsRules(corsRules);
 
             return View(model);       
@@ -43,7 +53,7 @@ namespace ACRM.Controllers
 
             try
             {
-                AzureProvider.GetInstance(_accountName, _accountKey).CreateCorsRule(corsRule);
+                _azureProvider.CreateCorsRule(corsRule);
             }
             catch (Exception e)
             {
@@ -56,7 +66,7 @@ namespace ACRM.Controllers
 
         public ActionResult Edit(int id)
         {
-            var corsRule = AzureProvider.GetInstance(_accountName, _accountKey).GetCorsRules()[id - 1];
+            var corsRule = _azureProvider.GetCorsRules()[id - 1];
             corsRule.AllowedMethods.ToString();
             var model = MapCorsRule(corsRule);
             model.Id = id;
@@ -73,7 +83,7 @@ namespace ACRM.Controllers
 
             try
             {
-                AzureProvider.GetInstance(_accountName, _accountKey).UpdateCorsRule(id - 1, corsRule);
+                _azureProvider.UpdateCorsRule(id - 1, corsRule);
             }
             catch (Exception e)
             {
@@ -81,6 +91,13 @@ namespace ACRM.Controllers
                 return View(model);
             }
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            _azureProvider.RemoveCorsRule(id - 1);
             return RedirectToAction("Index");
         }
         #endregion

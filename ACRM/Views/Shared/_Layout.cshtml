@@ -8,15 +8,26 @@
     <title>@ViewBag.Title</title>
 
     @*@Styles.Render("~/Content/css")*@
-    @Styles.Render("~/Content/themes/acrm/stylesheets/app.css")
-    
+    @Styles.Render("~/Content/themes/acrm/stylesheets/app.css")    
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 
 
-<body>
-    
+<body>    
+    <header>
+        @if (ViewBag.DisplayHeaderRulesLink)
+        { 
+            <span><strong>Use current credentials:</strong> @Html.ActionLink((string)ViewBag.AccountName, "Index", "Rules")</span>
+        }
+        else if (ViewBag.AccountName != null)
+        { 
+            <span>
+                <strong>Current account:</strong> @ViewBag.AccountName 
+                @Html.Raw("&#40;")@Html.ActionLink("Change", "Index", "Home")@Html.Raw("&#41;")
+            </span>
+        }
+    </header>
+
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
@@ -46,6 +57,5 @@
     <script>
         //$(document).foundation();
     </script>
-
 </body>
 </html>
