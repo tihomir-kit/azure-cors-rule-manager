@@ -17,6 +17,8 @@
             <button class="remove-button" type="button" data-index="@i" data-camel-prefix="AllowedOrigins" data-dash-prefix="allowed-origins">-</button>
         </div>
     }
+
+    <div>Examples: http://www.somedomain.com, http://test.local, *</div>
 </div>  
 
 <div id="allowed-methods-holder">
@@ -31,6 +33,8 @@
             <button class="remove-button" type="button" data-index="@i" data-camel-prefix="AllowedMethods" data-dash-prefix="allowed-methods">-</button>
         </div>
     }
+
+    <div>Examples: Get, Post, Put, Delete, List</div>
 </div>  
 
 <div id="allowed-headers-holder">
@@ -45,6 +49,8 @@
             <button class="remove-button" type="button" data-index="@i" data-camel-prefix="AllowedHeaders" data-dash-prefix="allowed-headers">-</button>
         </div>    
     }
+
+    <div>Examples: x-ms-meta-data, x-ms-meta-target, x-ms-*</div>
 </div>  
 
 <div id="exposed-headers-holder">
@@ -59,9 +65,12 @@
             <button class="remove-button" type="button" data-index="@i" data-camel-prefix="ExposedHeaders" data-dash-prefix="exposed-headers">-</button>
         </div>
     }
+
+    <div>Examples: x-ms-meta, x-ms-*</div>
 </div>  
 
 <div>
     <strong>@Html.LabelFor(m => m.MaxAgeInSeconds)</strong>
     <div>@Html.EditorFor(m => m.MaxAgeInSeconds)</div>
+    <div>Examples: 3600</div>
 </div>
