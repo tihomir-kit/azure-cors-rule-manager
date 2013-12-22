@@ -12,3 +12,7 @@ Since ACRM is made as an ASP.NET MVC web app which uses Azure SDK v3.x, you will
 ## Credits
 
 This app was inspired by [Gaurav Mantri's post](http://gauravmantri.com/2013/12/01/windows-azure-storage-and-cors-lets-have-some-fun/).
+
+======================
+
+Made at: [Mono Software Ltd.](http://www.mono-software.com/)
