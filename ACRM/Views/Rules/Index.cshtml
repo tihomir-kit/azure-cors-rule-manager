@@ -2,7 +2,10 @@
 
 <h2>Existing CORS Rules</h2>
 
-@Html.ActionLink("Add new rule", "Create") (Max. 5 per storage service)
+@if (Model.CorsRules.Count < 5)
+{
+    @Html.ActionLink("Add new rule", "Create") <span>(Max. 5 per storage service)</span>
+}
 
 @foreach (var corsRule in Model.CorsRules)
 {
