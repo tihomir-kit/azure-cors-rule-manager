@@ -19,39 +19,36 @@
 <br />
 
 <div class="gray-background login">
-@using (Html.BeginForm())
-{
-    if (!String.IsNullOrEmpty(Model.CustomErrorMessage))
+    @using (Html.BeginForm())
     {
-        <div>
-            @Model.CustomErrorMessage
+        if (!String.IsNullOrEmpty(Model.CustomErrorMessage))
+        {
+            <div>
+                @Model.CustomErrorMessage
+            </div>
+        }
+
+        <div class="row">
+            <div class="large-7 small-centered columns">
+                <strong>@Html.LabelFor(m => m.AccountName)</strong>
+
+                    @Html.EditorFor(m => m.AccountName)
+                    @Html.ValidationMessageFor(m => m.AccountName)
+            </div>
         </div>
-    }
-    
-    <div class="row">
-        <div class="large-7 small-centered columns">
-            <strong>@Html.LabelFor(m => m.AccountName)</strong>
 
-                @Html.EditorFor(m => m.AccountName)
-                @Html.ValidationMessageFor(m => m.AccountName)
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="large-7 small-centered columns">
-            <strong>@Html.LabelFor(m => m.AccountKey)</strong>
-
+        <div class="row">
+            <div class="large-7 small-centered columns">
+                <strong>@Html.LabelFor(m => m.AccountKey)</strong>
                 @Html.EditorFor(m => m.AccountKey)
                 @Html.ValidationMessageFor(m => m.AccountKey)
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="large-7 small-centered columns">
+                <input type="submit" value="Set credentials" class="button">
+            </div>
         </div>
-    </div>
-    
-    <div class="row">
-        <div class="large-7 small-centered columns">
-            <input type="submit" value="Set credentials" class="button">
-        </div>
-    </div>   
-}
+    }
 </div>
-

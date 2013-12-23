@@ -17,39 +17,37 @@
 
 @if (Model.CorsRules.Count < 5)
 {
-<div class="row">
-    <div class="large-7 small-centered columns">
-         @Html.ActionLink("Add new rule", "Create", new {  }, new { @class="add-icon" }) <span>(Max. 5 per storage service)</span>
+    <div class="row">
+        <div class="large-7 small-centered columns">
+            @Html.ActionLink("Add new rule", "Create", null, new { @class="add-icon" }) <span>(Max. 5 per storage service)</span>
+        </div>
     </div>
-</div>
 }
 
 <div class="gray-background">
-<div class="row">
-    <div class="large-7 small-centered columns rule-list">
+    <div class="row">
+        <div class="large-7 small-centered columns rule-list">
+            @foreach (var corsRule in Model.CorsRules)
+            {
+                <div class="rule">
+                    <h3>
+                        Rule #@corsRule.Id 
+                        <span class="action-icons">@Html.ActionLink("Edit", "Edit", new { id = corsRule.Id }, new { @class="edit-icon" }) 
+                        @Html.ActionLink("Remove", "Delete", new { id = corsRule.Id }, new { onclick = "return confirm('Are you sure you wish to remove this item?')", @class="remove-icon" })</span>
+                    </h3>
+                    <p><strong>Allowed origins:</strong> @(String.Join(", ", corsRule.AllowedOrigins))</p>
+                    <p><strong>Allowed methods:</strong> @(String.Join(", ", corsRule.AllowedMethods))</p>
+                    <p><strong>Allowed headers:</strong> @(String.Join(", ", corsRule.AllowedHeaders))</p>
+                    <p><strong>Exposed headers:</strong> @(String.Join(", ", corsRule.ExposedHeaders))</p>
+                    <p><strong>Max age (seconds):</strong> @(String.Join(", ", corsRule.MaxAgeInSeconds))</p>
+                </div>
+                <hr />
+            }
 
-    @foreach (var corsRule in Model.CorsRules)
-    {
-        <div class="rule">
-            <h3>
-                Rule #@corsRule.Id 
-                <span class="action-icons">@Html.ActionLink("Edit", "Edit", new { id = corsRule.Id }, new { @class="edit-icon" }) 
-                @Html.ActionLink("Remove", "Delete", new { id = corsRule.Id }, new { onclick = "return confirm('Are you sure you wish to remove this item?')", @class="remove-icon" })</span>
-            </h3>
-            <p><strong>Allowed origins:</strong> @(String.Join(", ", corsRule.AllowedOrigins))</p>
-            <p><strong>Allowed methods:</strong> @(String.Join(", ", corsRule.AllowedMethods))</p>
-            <p><strong>Allowed headers:</strong> @(String.Join(", ", corsRule.AllowedHeaders))</p>
-            <p><strong>Exposed headers:</strong> @(String.Join(", ", corsRule.ExposedHeaders))</p>
-            <p><strong>Max age (seconds):</strong> @(String.Join(", ", corsRule.MaxAgeInSeconds))</p>
+            @if (Model.CorsRules.Count == 0)
+            {
+                <div>There are no existin CORS rules for this account yet.</div>
+            }
         </div>
-        <hr />
-    }
-
-    @if (Model.CorsRules.Count == 0)
-    {
-        <div>There are no existin CORS rules for this account yet.</div>
-    }
-
     </div>
-</div>
 </div>
