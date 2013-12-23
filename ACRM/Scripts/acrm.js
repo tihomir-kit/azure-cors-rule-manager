@@ -47,7 +47,7 @@
         var divHolderId = "#" + dashPrefix + "-holder";
 
         var innerHolder = $("<div/>", {
-            class: dashPrefix + "-inner-holder"
+            class: dashPrefix + "-inner-holder inner-holder"
         });
 
         var input = $("<input/>", {
@@ -57,7 +57,7 @@
 
         var button = $("<button/>", {
             text: "-",
-            class: "remove-button",
+            class: "remove-button secondary",
             type: "button",
             "data-camel-prefix": camelPrefix,
             "data-dash-prefix": dashPrefix

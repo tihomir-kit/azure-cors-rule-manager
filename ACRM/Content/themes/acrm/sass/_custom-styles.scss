@@ -15,7 +15,10 @@ header {
 
 form {
 	background-color: lighten(#ccc, 15%);
-	padding: 2em 0;
+}
+
+.login form {
+	padding-top: 2em;
 }
 
 .title {
@@ -27,4 +30,89 @@ form {
 		padding-left: 1.25em;
 		margin-left: -1.25em;
 	}
+}
+
+footer {
+	font-size: 0.85em;
+	text-align: center;
+	line-height: 1.5em;
+	padding-top: 1em;
+}
+
+.gray-background {
+	background-color: lighten(#ccc, 15%);
+	padding: 1em 0; 
+	margin: 2em 0;
+}
+
+.rule-list {
+	padding-top: 1em;
+	padding-bottom: 1em;
+
+	p {
+		margin: 0.25em 0;
+		padding: 0.25em 0;
+		border-bottom: 1px solid lighten(#ccc, 15%);
+	}
+	.rule p:last-child {
+		border-bottom: 0px;
+		padding-bottom: 0;
+	}
+}
+
+.action-icons {
+	float: right;
+
+	a {
+		background-size: 15px;
+		padding-left: 1.5em;
+		font-size: 0.5em;
+	}
+}
+
+.add-icon {
+	background: url(../images/icon-plus.png) no-repeat left center;
+	background-size: 15px;
+	padding-left: 1em;
+}
+
+.edit-icon {
+	background: url(../images/icon-edit.png) no-repeat left center;
+}
+
+.remove-icon {
+	background: url(../images/icon-remove.png) no-repeat left center;
+	margin-left: 1em;
+}
+
+.outer-holder,
+.inner-holder {
+	position: relative;
+}
+
+.add-button,
+.remove-button {
+	position: absolute;
+	padding: 0.1em 0.5em;
+	font-size: 0.9em;
+}
+
+.add-button {
+	right: 0;
+	top: -0.5em;
+}
+
+.remove-button {
+	right: 0.3em;
+	top: 0.3em;
+	color: #888 !important;
+}
+
+.example {
+	font-size: 0.9em;
+	margin: -0.5em 0 2em 0;
+}
+
+.save-rule {
+	margin: 1em 0 0 0;
 }

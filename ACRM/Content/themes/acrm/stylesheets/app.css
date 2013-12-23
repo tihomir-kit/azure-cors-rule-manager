@@ -456,7 +456,7 @@ body {
 /* line 300, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_global.scss */
 body {
   background: white;
-  color: #222222;
+  color: #888888;
   padding: 0;
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -2222,7 +2222,7 @@ abbr,
 acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222222;
+  color: #888888;
   border-bottom: 1px dotted #dddddd;
   cursor: help;
 }
@@ -3117,6 +3117,81 @@ label.error {
   color: #c60f13;
 }
 
+/* Breadcrumbs */
+/* line 115, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 0;
+  list-style: none;
+  border-style: solid;
+  border-width: 0px;
+  background-color: white;
+  border-color: #e6e6e6;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 119, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > * {
+  margin: 0;
+  float: left;
+  font-size: 0.6875em;
+  text-transform: uppercase;
+}
+/* line 60, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *:hover a, .breadcrumbs > *:focus a {
+  text-decoration: underline;
+}
+/* line 63, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > * a,
+.breadcrumbs > * span {
+  text-transform: uppercase;
+  color: #2ba6cb;
+}
+/* line 69, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *.current {
+  cursor: default;
+  color: #333333;
+}
+/* line 72, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *.current a {
+  cursor: default;
+  color: #333333;
+}
+/* line 78, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *.current:hover, .breadcrumbs > *.current:hover a, .breadcrumbs > *.current:focus, .breadcrumbs > *.current:focus a {
+  text-decoration: none;
+}
+/* line 82, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *.unavailable {
+  color: #999999;
+}
+/* line 84, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *.unavailable a {
+  color: #999999;
+}
+/* line 89, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *.unavailable:hover, .breadcrumbs > *.unavailable:hover a, .breadcrumbs > *.unavailable:focus,
+.breadcrumbs > *.unavailable a:focus {
+  text-decoration: none;
+  color: #999999;
+  cursor: default;
+}
+/* line 96, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *:before {
+  content: "/";
+  color: #aaaaaa;
+  margin: 0 0.75em;
+  position: relative;
+  top: 1px;
+}
+/* line 104, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_breadcrumbs.scss */
+.breadcrumbs > *:first-child:before {
+  content: " ";
+  margin: 0;
+}
+
 /* line 1, ../sass/_custom-styles.scss */
 header {
   border-bottom: 1px solid #e6e6e6;
@@ -3137,11 +3212,15 @@ header {
 /* line 16, ../sass/_custom-styles.scss */
 form {
   background-color: #f2f2f2;
-  padding: 2em 0;
+}
+
+/* line 20, ../sass/_custom-styles.scss */
+.login form {
+  padding-top: 2em;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 21, ../sass/_custom-styles.scss */
+  /* line 24, ../sass/_custom-styles.scss */
   .title {
     background-image: url(../images/logo.png);
     background-repeat: no-repeat;
@@ -3150,4 +3229,103 @@ form {
     padding-left: 1.25em;
     margin-left: -1.25em;
   }
+}
+
+/* line 35, ../sass/_custom-styles.scss */
+footer {
+  font-size: 0.85em;
+  text-align: center;
+  line-height: 1.5em;
+  padding-top: 1em;
+}
+
+/* line 42, ../sass/_custom-styles.scss */
+.gray-background {
+  background-color: #f2f2f2;
+  padding: 1em 0;
+  margin: 2em 0;
+}
+
+/* line 48, ../sass/_custom-styles.scss */
+.rule-list {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+/* line 52, ../sass/_custom-styles.scss */
+.rule-list p {
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 57, ../sass/_custom-styles.scss */
+.rule-list .rule p:last-child {
+  border-bottom: 0px;
+  padding-bottom: 0;
+}
+
+/* line 63, ../sass/_custom-styles.scss */
+.action-icons {
+  float: right;
+}
+/* line 66, ../sass/_custom-styles.scss */
+.action-icons a {
+  background-size: 15px;
+  padding-left: 1.5em;
+  font-size: 0.5em;
+}
+
+/* line 73, ../sass/_custom-styles.scss */
+.add-icon {
+  background: url(../images/icon-plus.png) no-repeat left center;
+  background-size: 15px;
+  padding-left: 1em;
+}
+
+/* line 79, ../sass/_custom-styles.scss */
+.edit-icon {
+  background: url(../images/icon-edit.png) no-repeat left center;
+}
+
+/* line 83, ../sass/_custom-styles.scss */
+.remove-icon {
+  background: url(../images/icon-remove.png) no-repeat left center;
+  margin-left: 1em;
+}
+
+/* line 89, ../sass/_custom-styles.scss */
+.outer-holder,
+.inner-holder {
+  position: relative;
+}
+
+/* line 94, ../sass/_custom-styles.scss */
+.add-button,
+.remove-button {
+  position: absolute;
+  padding: 0.1em 0.5em;
+  font-size: 0.9em;
+}
+
+/* line 100, ../sass/_custom-styles.scss */
+.add-button {
+  right: 0;
+  top: -0.5em;
+}
+
+/* line 105, ../sass/_custom-styles.scss */
+.remove-button {
+  right: 0.3em;
+  top: 0.3em;
+  color: #888 !important;
+}
+
+/* line 111, ../sass/_custom-styles.scss */
+.example {
+  font-size: 0.9em;
+  margin: -0.5em 0 2em 0;
+}
+
+/* line 116, ../sass/_custom-styles.scss */
+.save-rule {
+  margin: 1em 0 0 0;
 }

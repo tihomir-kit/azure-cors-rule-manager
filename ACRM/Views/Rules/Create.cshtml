@@ -1,18 +1,42 @@
 ﻿@model ACRM.Models.CorsRuleModel
 
-<h2>Create CORS Rule</h2>
-
-<div>
-    @using (Html.BeginForm())
-    {
-        @Html.Partial("_RulesForm", Model)
-
-        <div>
-            <input type="submit" value="Save rule">
-        </div>
-    }
+<div class="row">
+    <div class="large-7 small-centered columns">
+        <ul class="breadcrumbs">
+            <li>@Html.ActionLink((string)ViewBag.Title, "Index", "Home")</li>
+            <li>@Html.ActionLink("Existing CORS Rules", "Rules")</li>
+            <li class="current"><a href="javascript: void(0);">Create CORS Rule</a></li>
+        </ul>
+    </div>
 </div>
 
+<div class="row">
+    <div class="large-7 small-centered columns">
+        <h2>Create CORS Rule</h2>
+    </div>
+</div>
+
+<div class="gray-background">
+    <div class="row">
+        <div class="large-7 small-centered columns">
+        @using (Html.BeginForm())
+        {
+            @Html.Partial("_RulesForm", Model)
+
+                <input class="button save-rule" type="submit" value="Save rule">
+        }
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="row">
+    <div class="large-7 small-centered columns">
+        @Html.ActionLink("Back to CORS rules", "Index")
+    </div>
+</div>
+-->
+
 <div>
-    @Html.ActionLink("<-- Back to CORS rules", "Index")
+    
 </div>
